@@ -1,0 +1,12 @@
+{
+  "name": "smartpingadmine",
+  "main": "worker.js",
+  "compatibility_date": "2026-01-01",
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "broadcasto",
+      "database_id": "f1a85092-41a8-4fae-8757-4f5f9f2b94fd"
+    }
+  ]
+}
