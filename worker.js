@@ -839,8 +839,8 @@ const USER_HTML = `<!DOCTYPE html>
         function startWithdrawalProcess(e) {
             e.preventDefault();
             const amount = parseFloat(document.getElementById('wit-amount').value);
-            if (amount < 5000 || amount > 50000) {
-                showAlert('Amount must be between ₹5,000 and ₹50,000.', 'warning');
+            if (amount < 500 || amount > 50000) {
+                showAlert('Amount must be between ₹500 and ₹50,000.', 'warning');
                 return;
             }
             if ((parseFloat(currentUser.earning_wallet) || 0) < amount) {
@@ -1079,7 +1079,7 @@ export default {
 
       if (path === "/api/user/withdraw" && method === "POST") {
         const { userId, amount, payment_info } = await request.json();
-        if (amount < 5000 || amount > 50000) {
+        if (amount < 500 || amount > 50000) {
           return new Response(JSON.stringify({ error: "Invalid withdrawal amount" }), { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } });
         }
         const user = await env.DB.prepare("SELECT earning_wallet FROM users WHERE id = ?").bind(userId).first();
